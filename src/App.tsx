@@ -1,34 +1,14 @@
-import StarIcon from '@/assets/star.svg?react';
-import LogoIcon from '@/assets/stair.svg?react';
+import Header from '@/components/Header';
+import MainPage from '@/pages/MainPage';
+import Footer from '@/components/Footer';
+
 import '@/styles.css';
 
 const App = () => (
   <>
-    <header>
-      <div className="logo">
-        <LogoIcon
-          width={16}
-          height={16}
-          className="logo__icon"
-        />
-        <span>Eats</span>
-      </div>
-      <div className="profile">
-        <img
-          alt="profile"
-          src="/avatar.png"
-        />
-      </div>
-    </header>
-    <main>
-      <input placeholder="Search for restaurants" />
-      <section></section>
-    </main>
-    <footer>
-      <p>Privacy Policy</p>
-      <p className="corporation">2024 Eats</p>
-      <p>Terms Of Service</p>
-    </footer>
+    <Header />
+    <MainPage />
+    <Footer />
   </>
 );
 

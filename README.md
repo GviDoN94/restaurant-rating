@@ -1,4 +1,4 @@
-## Запуск
+## Project Setup
 
 1. Install dependencies:
 
