@@ -1,0 +1,23 @@
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.card__name {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.card__description {
+  margin-top: 5px;
+  color: rgb(179, 97, 52);
+}
+
+.card__rating {
+  margin-top: 10px;
+}

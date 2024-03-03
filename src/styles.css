@@ -21,3 +21,10 @@ p {
 main {
   flex: 1 1 0;
 }
+
+section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding-top: 50px;
+}

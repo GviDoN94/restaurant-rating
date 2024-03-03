@@ -4,8 +4,7 @@ interface IProps {
   children: React.ReactNode;
 }
 
-export const Container = ({ children }: IProps) => (
+const Container = ({ children }: IProps) => (
   <div className="container">{children}</div>
 );
-
 export default Container;
