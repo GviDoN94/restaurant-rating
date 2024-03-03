@@ -1,0 +1,13 @@
+.search {
+  margin-top: 50px;
+  width: 100%;
+  border: none;
+  background-color: rgb(244, 216, 204);
+  padding: 10px;
+  border-radius: 10px;
+  color: rgb(218, 98, 43);
+}
+
+.search::placeholder {
+  color: rgb(218, 98, 43);
+}

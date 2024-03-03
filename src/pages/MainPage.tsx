@@ -1,9 +1,12 @@
+import Container from '@/components/Container';
 import Search from '@/components/Search';
 
 const MainPage = () => (
   <main>
-    <Search />
-    <section></section>
+    <Container>
+      <Search placeholder="Search for restaurants" />
+      <section></section>
+    </Container>
   </main>
 );
 

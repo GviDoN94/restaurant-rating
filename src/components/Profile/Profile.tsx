@@ -1,10 +1,14 @@
 import './profile.css';
 
-const Profile = () => (
+interface IProps {
+  image: string;
+}
+
+const Profile = ({ image }: IProps) => (
   <div className="profile">
     <img
       alt="profile"
-      src="/avatar.png"
+      src={image}
     />
   </div>
 );

@@ -1,5 +1,14 @@
 import './search.css';
 
-const Search = () => <input placeholder="Search for restaurants" />;
+interface IProps {
+  placeholder: string;
+}
+
+const Search = ({ placeholder }: IProps) => (
+  <input
+    className="search"
+    placeholder={placeholder}
+  />
+);
 
 export default Search;

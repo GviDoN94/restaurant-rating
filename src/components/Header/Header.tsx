@@ -5,8 +5,8 @@ import './header.css';
 
 const Header = () => (
   <header>
-    <Logo />
-    <Profile />
+    <Logo title="Eats" />
+    <Profile image="/avatar.png" />
   </header>
 );
 
