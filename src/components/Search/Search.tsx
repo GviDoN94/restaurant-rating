@@ -2,12 +2,14 @@ import './search.css';
 
 interface IProps {
   placeholder: string;
+  search: (name: string) => void;
 }
 
-const Search = ({ placeholder }: IProps) => (
+const Search = ({ placeholder, search }: IProps) => (
   <input
     className="search"
     placeholder={placeholder}
+    onChange={({ target }) => search(target.value)}
   />
 );
 

@@ -1,25 +1,24 @@
 import './card.css';
 import Rating from '@/components/Rating';
+import { Restaurant } from '@/api/api';
 
 interface IProps {
-  image: string;
-  name: string;
-  description: string;
-  rating: number;
+  card: Restaurant;
 }
 
-const Card = ({ image, name, description, rating }: IProps) => (
+const Card = ({ card }: IProps) => (
   <div className="card">
-    <img
-      className="card__image"
-      alt={name}
-      src={image}
-    />
+    <div className="card__image">
+      <img
+        alt={card.name}
+        src={card.url}
+      />
+    </div>
     <div className="card__content">
-      <div className="card__name">{name}</div>
-      <div className="card__description">{description}</div>
+      <div className="card__name">{card.name}</div>
+      <div className="card__description">{card.description}</div>
       <div className="card__rating">
-        <Rating rating={rating} />
+        <Rating rating={card.raiting} />
       </div>
     </div>
   </div>

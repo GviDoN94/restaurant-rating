@@ -1,29 +1,44 @@
 import Container from '@/components/Container';
 import Search from '@/components/Search';
 import Card from '@/components/Card';
+import { useRestaurantList } from '@/hooks/useRestaurantList';
+import { Restaurant } from '@/api/api';
+import { useState } from 'react';
 
-const card = {
-  id: 1,
-  name: "Mama's Kitchen",
-  description: 'American, 4.7 stars',
-  raiting: 4,
-  url: '/mamas-kitchen.png',
-};
+const MainPage = () => {
+  const { data, isLoading } = useRestaurantList();
+  const [search, setSearch] = useState('');
 
-const MainPage = () => (
-  <main>
-    <Container>
-      <Search placeholder="Search for restaurants" />
-      <section>
-        <Card
-          image={card.url}
-          name={card.name}
-          description={card.description}
-          rating={card.raiting}
+  const filterData = (name: string): Restaurant[] =>
+    name
+      ? data.filter((restaurant) =>
+          restaurant.name.toLowerCase().includes(name.toLowerCase()),
+        )
+      : data;
+
+  const filteredRestaurants = filterData(search);
+
+  return (
+    <main>
+      <Container>
+        <Search
+          placeholder="Search for restaurants"
+          search={setSearch}
         />
-      </section>
-    </Container>
-  </main>
-);
+        {isLoading && (
+          <p style={{ textAlign: 'center', marginTop: '20px' }}>Loading...</p>
+        )}
+        <section>
+          {filteredRestaurants.map((restaurant) => (
+            <Card
+              card={restaurant}
+              key={restaurant.id}
+            />
+          ))}
+        </section>
+      </Container>
+    </main>
+  );
+};
 
 export default MainPage;
