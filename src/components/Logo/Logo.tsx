@@ -6,7 +6,7 @@ interface IProps {
   title: string;
 }
 
-const Logo = ({ title }: IProps) => (
+const Logo: React.FC<IProps> = ({ title }: IProps) => (
   <div className="logo">
     <LogoIcon
       width={16}

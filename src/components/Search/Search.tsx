@@ -5,7 +5,7 @@ interface IProps {
   search: (name: string) => void;
 }
 
-const Search = ({ placeholder, search }: IProps) => (
+const Search: React.FC<IProps> = ({ placeholder, search }: IProps) => (
   <input
     className="search"
     placeholder={placeholder}

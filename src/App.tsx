@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 
 import '@/styles.css';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Header />
     <MainPage />

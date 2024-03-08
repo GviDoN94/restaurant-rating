@@ -1,6 +1,6 @@
 import './footer.css';
 
-const Footer = () => (
+const Footer: React.FC = () => (
   <footer>
     <p>Privacy Policy</p>
     <p className="corporation">2024 Eats</p>

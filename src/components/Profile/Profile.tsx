@@ -4,7 +4,7 @@ interface IProps {
   image: string;
 }
 
-const Profile = ({ image }: IProps) => (
+const Profile: React.FC<IProps> = ({ image }: IProps) => (
   <div className="profile">
     <img
       alt="profile"
