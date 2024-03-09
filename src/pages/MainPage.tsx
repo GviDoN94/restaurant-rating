@@ -4,12 +4,11 @@ import Card from '@/components/Card';
 import { useRestaurantList } from '@/hooks/useRestaurantList';
 import { Restaurant } from '@/api/api';
 import { useCallback, useMemo, useState } from 'react';
-import { updateRestaurantRating } from '@/api/api';
-import { useMutation } from '@tanstack/react-query';
-import { queryClient } from '@/api/queryClient';
+import { useUpdateRating } from '@/hooks/useUpdateRating';
 
 const MainPage = () => {
   const { data, isLoading } = useRestaurantList();
+  const { mutate } = useUpdateRating();
   const [search, setSearch] = useState('');
 
   const filterData = useCallback(
@@ -27,20 +26,6 @@ const MainPage = () => {
     [filterData, search],
   );
 
-  const mutateRaiting = useMutation(
-    {
-      mutationFn: (variables: { id: string; raiting: number }) =>
-        updateRestaurantRating(variables),
-      onSuccess: () =>
-        queryClient.invalidateQueries({ queryKey: ['restaurants'] }),
-    },
-    queryClient,
-  );
-
-  const updateData = (id: string, raiting: number) => {
-    mutateRaiting.mutate({ id, raiting });
-  };
-
   return (
     <main>
       <Container>
@@ -56,7 +41,7 @@ const MainPage = () => {
             <Card
               card={restaurant}
               key={restaurant.id}
-              update={updateData}
+              update={mutate}
             />
           ))}
         </section>

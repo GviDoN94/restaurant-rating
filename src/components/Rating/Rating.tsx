@@ -4,7 +4,7 @@ import './rating.css';
 interface IProps {
   rating: number;
   id: string;
-  onUpdate: (id: string, raiting: number) => void;
+  onUpdate: (variables: { id: string; rating: number }) => void;
 }
 
 const Rating: React.FC<IProps> = ({ id, rating, onUpdate }: IProps) => {
@@ -15,7 +15,7 @@ const Rating: React.FC<IProps> = ({ id, rating, onUpdate }: IProps) => {
       color={index < rating ? '#e23636' : '#ccc'}
       onClick={() => {
         if (rating !== index + 1) {
-          onUpdate(id, index + 1);
+          onUpdate({ id, rating: index + 1 });
         }
       }}
     />

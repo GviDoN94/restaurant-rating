@@ -4,7 +4,7 @@ import { Restaurant } from '@/api/api';
 
 interface IProps {
   card: Restaurant;
-  update: (id: string, raiting: number) => void;
+  update: (variables: { id: string; rating: number }) => void;
 }
 
 const Card: React.FC<IProps> = ({ card, update }: IProps) => (
@@ -20,7 +20,7 @@ const Card: React.FC<IProps> = ({ card, update }: IProps) => (
       <div className="card__description">{card.description}</div>
       <div className="card__rating">
         <Rating
-          rating={card.raiting}
+          rating={card.rating}
           id={card.id}
           onUpdate={update}
         />
