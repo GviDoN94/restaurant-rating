@@ -2,28 +2,16 @@ import Container from '@/components/Container';
 import Search from '@/components/Search';
 import Card from '@/components/Card';
 import { useRestaurantList } from '@/hooks/useRestaurantList';
-import { Restaurant } from '@/api/api';
-import { useCallback, useMemo, useState } from 'react';
+import { useState } from 'react';
 import { useUpdateRating } from '@/hooks/useUpdateRating';
 
 const MainPage = () => {
-  const { data, isLoading } = useRestaurantList();
+  const { data: restaurants, isLoading } = useRestaurantList();
   const { mutate } = useUpdateRating();
   const [search, setSearch] = useState('');
 
-  const filterData = useCallback(
-    (name: string): Restaurant[] =>
-      name
-        ? data.filter((restaurant) =>
-            restaurant.name.toLowerCase().includes(name.toLowerCase()),
-          )
-        : data,
-    [data],
-  );
-
-  const filteredRestaurants = useMemo(
-    () => filterData(search),
-    [filterData, search],
+  const filteredRestaurants = restaurants.filter((restaurant) =>
+    restaurant.name.toLowerCase().includes(search.toLowerCase()),
   );
 
   return (
